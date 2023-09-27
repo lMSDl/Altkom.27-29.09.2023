@@ -68,6 +68,21 @@ Console.WriteLine($"{9:0#}");
 Console.WriteLine($"{19:0#}");
 
 
+StringDemo();
+
+
+Console.WriteLine("Podaj jakąś wartość liczbową:");
+string input = Console.ReadLine();
+
+//parsowanie/konwersja string na int
+int intInput = int.Parse(input);
+//parsowanie/konwersja string na float
+float floatInput = float.Parse(input);
+
+float value = intInput / 2f;
+Console.WriteLine(value);
+
+
 void StringDemo()
 {
 
