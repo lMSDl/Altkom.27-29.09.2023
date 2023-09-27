@@ -68,6 +68,11 @@ Console.WriteLine(isEqual);
 isEqual = helloVariable == "Hello";
 Console.WriteLine(isEqual);
 
+//porównanie z ignorowaniem wielkości znaków
+isEqual = helloVariable.Equals("hello", StringComparison.InvariantCultureIgnoreCase);
+Console.WriteLine(isEqual);
+
+
 //usuwanie białych znaków z poćżatku i/lub końca
 output = "      ala ma kota       ";
 Console.WriteLine(output + "|");
