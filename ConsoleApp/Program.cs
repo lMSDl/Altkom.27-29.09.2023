@@ -1,7 +1,6 @@
-﻿
-//deklaracja zmiennej lokalnej o typue string (ciąg/łańcuch znaków) i nazwie helloVariable
-using System.Globalization;
+﻿using System.Globalization;
 
+//deklaracja zmiennej lokalnej o typue string (ciąg/łańcuch znaków) i nazwie helloVariable
 string helloVariable;
 //inicjalizację zmiennej - pierwsze przypisanie wartości
 helloVariable = "Hello";
