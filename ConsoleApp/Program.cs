@@ -1,5 +1,7 @@
 ﻿
 //deklaracja zmiennej lokalnej o typue string (ciąg/łańcuch znaków) i nazwie helloVariable
+using System.Globalization;
+
 string helloVariable;
 //inicjalizację zmiennej - pierwsze przypisanie wartości
 helloVariable = "Hello";
@@ -38,3 +40,37 @@ Console.WriteLine(output);
 
 output = $"{helloVariable} {target}!"; //łączenie stringów wykorzystując interpolację (string interpolowany)
 Console.WriteLine(output);
+
+
+//Lenth - właściwość (brak nawiasów odróżnia ją od metody) - przetrzymuje dane
+Console.WriteLine($"Długość stringa \"{output}\" to {output.Length}"); // \ - ukośnik opadający aktywuje znak specjalny/zastrzeżony
+
+//Count() - metoda (ma nawaiasy) oblicza ilość znaków
+Console.WriteLine($"Długość stringa \"{output}\" to {output.Count()}");
+
+//stringów nie możemy edytować, żeby zmienić wartość należy wytworzyć nowego stringa i przypisać pod zmienną
+//zastąpienie części znaków - czułe na wielkość liter
+output = output.Replace("Hello", "Hi");
+Console.WriteLine(output);
+//zastąpienie części znaków - niezależne od wielkości liter
+output = output.Replace("hi", "Welcome", ignoreCase: true, CultureInfo.InvariantCulture );
+Console.WriteLine(output);
+
+//obliczamy ile znaków usunąć z końca
+output = output.Substring(5, output.Length - 5 - 1);
+Console.WriteLine(output);
+
+//Equals porównuje czy obiekty są tym samym obiektem. Produktem metody jest zmienna bool (prawda/fałsz)
+bool isEqual = helloVariable.Equals("Hi");
+Console.WriteLine(isEqual);
+
+// == - operator porównania, dla string działa tak samo jako Equals
+isEqual = helloVariable == "Hello";
+Console.WriteLine(isEqual);
+
+//usuwanie białych znaków z poćżatku i/lub końca
+output = "      ala ma kota       ";
+Console.WriteLine(output + "|");
+Console.WriteLine(output.Trim() + "|");
+Console.WriteLine(output.TrimEnd() + "|");
+Console.WriteLine(output.TrimStart() + "|");
