@@ -30,6 +30,15 @@ string[] tablicaWartosci = new string[3];
 //wpisujemy do tablicy wartość bezpośrednio z konsoli pod indeks 0
 tablicaWartosci[0] = Console.ReadLine();
 
+Console.WriteLine("Napisz coś:");
+
+string historyjka = Console.ReadLine();
+
+//tablica zwracana jako rezultat wywołania metody
+//metoda split dzieli string na części wg wskazanego separatora
+string[] wyrazy = historyjka.Split(" ");
+//pobieramy wielkość tablicy
+Console.WriteLine($"Ilość wyrazów: {wyrazy.Length}");
 
 
 
