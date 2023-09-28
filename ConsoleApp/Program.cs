@@ -1,5 +1,79 @@
 ﻿using System.Globalization;
 
+Console.WriteLine("Podaj bok kwadratu:");
+string daneOdUzytkownika = Console.ReadLine();
+
+
+if (daneOdUzytkownika != "exit")
+{
+
+    float bokKwadratu = float.Parse(daneOdUzytkownika);
+
+    //if sprawdza watunek w nawiasie i jeśli jest on prawdziwy, to wykonuje się blok kodu pod nim
+    // > - znak większości
+    if (bokKwadratu > 0)
+    {
+        float obwod = bokKwadratu * 4;
+        Console.WriteLine($"Kwadrat o boku {bokKwadratu} na obwód {obwod}");
+    }
+    // jeśli poprzedni warunek nie jest spełniony, to sprawdzany jest kolejny if
+    // else if - może występować wielokrotne
+    else if (bokKwadratu < 0)
+    {
+        Console.WriteLine("Nie mogę policzyć obwodu z boku mniejszego niż zero");
+    }
+    //else - wykonuje blok kodu w każdym innym przypadku
+    else
+    {
+        Console.WriteLine("Kwadrat nie istnieje");
+    }
+
+    //jeżeli używany else, to tylko jeden blok kodu zostanie wykonany i sprzwdzanie warunków zakończy się w przypadku wejścia w któryś z bloków
+    //jeżeli nie używany else, to każdy if będzie traktowany osobno i warunek będzie sprzwdzany niezależnie
+    //wniosek else jest też łącznikiem między kolejnymi if'ami
+
+
+    //!= - znak nierówności 
+    if (bokKwadratu != 0)
+    {
+        Console.WriteLine("Bok jest różny od 0");
+    }
+
+    //znak równości
+    if (bokKwadratu == 0)
+    {
+        Console.WriteLine("Bok jest równy 0");
+    }
+
+
+    bool rezultat = bokKwadratu == 0; //porównanie
+    rezultat = bokKwadratu != 0; //nierówność
+    rezultat = bokKwadratu > 0; //większe
+    rezultat = bokKwadratu < 0; //mniejsze
+    rezultat = bokKwadratu >= 0; //większe bądź równe
+    rezultat = bokKwadratu <= 0; // mniejsze bądź równe
+
+    rezultat = bokKwadratu < 0 || bokKwadratu == 0; // || - logiczne lub (OR)
+    rezultat = bokKwadratu > 0 && bokKwadratu <= 10; // && - logiczne i (AND)
+
+
+    if (rezultat)
+    {
+        Console.WriteLine("Bok kwadratu jest z przedziału (0;10>");
+    }
+
+    //! - negacja - zaprzeczenie tego co występuje po wykrzykniku
+    if (!rezultat)
+    {
+        Console.WriteLine("Bok kwadratu nie jest z przediały 9:10>");
+    }
+
+
+}
+
+
+
+
 void ListDemo()
 {
 
