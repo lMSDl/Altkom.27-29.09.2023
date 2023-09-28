@@ -1,93 +1,147 @@
 ﻿using System.Globalization;
 
-Console.WriteLine("Podaj nazwę stopnia ze szkolej skali ocen:");
-string nazwa = Console.ReadLine();
-
-//switch - przyjmuje parametr, kóry jest porównywany z listą przypadkó (case)
-switch (nazwa)
+void DoWhile()
 {
-    //case - rozpatrywany przypadek
-    //wiele case'ow może być przypisanych do tego samego kodu
-    case "celujący":
-    case "celująca":
+    float wartoscFloat;
+    bool wartoscPoprawna;
+
+    //do-while - sprawdza warunek po wykonaniu ciała - zapewnia, że zostanie ono wykonane co najmniej raz
+    //pozwala to wyeliminować inicjalizację zminnych przed wejściem do pętli
+    do
+    {
+        Console.WriteLine("Podaj liczbę:");
+        string wartoscString = Console.ReadLine();
+        wartoscPoprawna = float.TryParse(wartoscString, out wartoscFloat);
+
+        if (!wartoscPoprawna)
         {
-            Console.WriteLine(6);
-            //kod wykonywany jest od case do break - nie ma potrzeby stosowaniea klamerek {}
-            //case musi kończyć się instrukją break - przerywająca wykonywanie swticha
+            Console.WriteLine("Podana wartość nie jest liczbą");
         }
-        break;
-    case "bardzo dobry":
-    case "bardzo dobra":
-        Console.WriteLine(5);
-        break;
-    case "dobry":
-    case "dobra":
-        Console.WriteLine(4);
-        break;
-    case "dostateczny":
-    case "dostateczna":
-        Console.WriteLine(3);
-        break;
-    case "dopuszczający":
-    case "dopuszczająca":
-        Console.WriteLine(2);
-        break;
-    case "niedostateczny":
-    case "niedostateczna":
-        Console.WriteLine(1);
-        break;
+    } while (!wartoscPoprawna); //w przypadku do-while na końcu występuje średnik ;
+
+    Console.WriteLine($"Twoja liczba to {wartoscFloat}");
+}
+
+void WhileDemo()
+{
+
+    //musimy zainicjalizować zmienną, ponieważ istnieje szansza, że pętla się nie wykona i zmienna nie zostanie zainicjalozowana, a za pętlą ma być użyta
+    float wartoscFloat = 0;
+    bool wartoscPoprawna = false;
+
+    //while - pętla która trwa gdy jej parametr jest true, parametr jest sprawdzany przed każdym wejściem do pętli
+    // jeśli przy pierwszym wejściu parametr będzie false, to pętla się nigdy nie wykona
+    //while(true) = pętla nieskończona
+
+    while (!wartoscPoprawna)
+    {
+        Console.WriteLine("Podaj liczbę:");
+        string wartoscString = Console.ReadLine();
+        wartoscPoprawna = float.TryParse(wartoscString, out wartoscFloat);
+
+        if (!wartoscPoprawna)
+        {
+            Console.WriteLine("Podana wartość nie jest liczbą");
+        }
+    }
+
+    Console.WriteLine($"Twoja liczba to {wartoscFloat}");
+
+}
+
+
+
+void SwitchDemo()
+{
+
+    Console.WriteLine("Podaj nazwę stopnia ze szkolej skali ocen:");
+    string nazwa = Console.ReadLine();
+
+    //switch - przyjmuje parametr, kóry jest porównywany z listą przypadkó (case)
+    switch (nazwa)
+    {
+        //case - rozpatrywany przypadek
+        //wiele case'ow może być przypisanych do tego samego kodu
+        case "celujący":
+        case "celująca":
+            {
+                Console.WriteLine(6);
+                //kod wykonywany jest od case do break - nie ma potrzeby stosowaniea klamerek {}
+                //case musi kończyć się instrukją break - przerywająca wykonywanie swticha
+            }
+            break;
+        case "bardzo dobry":
+        case "bardzo dobra":
+            Console.WriteLine(5);
+            break;
+        case "dobry":
+        case "dobra":
+            Console.WriteLine(4);
+            break;
+        case "dostateczny":
+        case "dostateczna":
+            Console.WriteLine(3);
+            break;
+        case "dopuszczający":
+        case "dopuszczająca":
+            Console.WriteLine(2);
+            break;
+        case "niedostateczny":
+        case "niedostateczna":
+            Console.WriteLine(1);
+            break;
         //default - odpowiedniek else, czyli wykonanie kodu, jeśli nie znalezioni odpowiedniego case
-    default:
+        default:
+            Console.WriteLine("W skali ocen nie występuje taki stopień");
+            break;
+    }
+
+    /*if (nazwa == "celujący" || nazwa == "celująca")
+    {
+        Console.WriteLine(6);
+    }
+    else if (nazwa == "bardzo dobry")
+    {
+        Console.WriteLine(5);
+    }
+    else if (nazwa == "dobry")
+    {
+        Console.WriteLine(4);
+    }
+    else if (nazwa == "dostateczny")
+    {
+        Console.WriteLine(3);
+    }
+    else if (nazwa == "dopuszczający")
+    {
+        Console.WriteLine(2);
+    }
+    else if (nazwa == "niedostateczny")
+    {
+        Console.WriteLine(1);
+    }
+    else
+    {
         Console.WriteLine("W skali ocen nie występuje taki stopień");
-        break;
-}
-
-/*if (nazwa == "celujący" || nazwa == "celująca")
-{
-    Console.WriteLine(6);
-}
-else if (nazwa == "bardzo dobry")
-{
-    Console.WriteLine(5);
-}
-else if (nazwa == "dobry")
-{
-    Console.WriteLine(4);
-}
-else if (nazwa == "dostateczny")
-{
-    Console.WriteLine(3);
-}
-else if (nazwa == "dopuszczający")
-{
-    Console.WriteLine(2);
-}
-else if (nazwa == "niedostateczny")
-{
-    Console.WriteLine(1);
-}
-else
-{
-    Console.WriteLine("W skali ocen nie występuje taki stopień");
-}*/
+    }*/
 
 
-string wartosc = Console.ReadLine();
-int wartoscLiczbowa = int.Parse(wartosc);
+    string wartosc = Console.ReadLine();
+    int wartoscLiczbowa = int.Parse(wartosc);
 
-switch(wartoscLiczbowa)
-{
-    case > 0:
-        Console.WriteLine($"{wartosc} jest > 0");
-        break;
-    case < 0:
-        Console.WriteLine($"{wartosc} jest < 0");
-        break;
-    case 0:
-        Console.WriteLine($"{wartosc} jest = 0");
-        break;
+    switch (wartoscLiczbowa)
+    {
+        case > 0:
+            Console.WriteLine($"{wartosc} jest > 0");
+            break;
+        case < 0:
+            Console.WriteLine($"{wartosc} jest < 0");
+            break;
+        case 0:
+            Console.WriteLine($"{wartosc} jest = 0");
+            break;
+    }
 }
-
 
 
 void IfDemo()
