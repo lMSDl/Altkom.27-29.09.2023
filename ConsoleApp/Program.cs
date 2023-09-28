@@ -1,114 +1,149 @@
 ﻿using System.Globalization;
 
 
-int a = 11;
-int b = 4;
+int a = 5;
+int b = 10;
+int c = 15;
 
-int c = a + b;
-Console.WriteLine($"{a} + {b} = {c}");
-c = a - b;
-Console.WriteLine($"{a} - {b} = {c}");
-c = a * b;
-Console.WriteLine($"{a} * {b} = {c}");
-c = a / b; // część dziesiętna jest ucięta
-Console.WriteLine($"{a} / {b} = {c}");
-c = a % b; //reszta z dzielenia
-Console.WriteLine($"{a} % {b} = {c}");
 
-float aa = 11f;
-float bb = 4.0f;
-float cc = aa + bb;
-Console.WriteLine($"{aa} + {bb} = {cc}");
-cc = aa - bb;
-Console.WriteLine($"{aa} - {bb} = {cc}");
-cc = aa * bb;
-Console.WriteLine($"{aa} * {bb} = {cc}");
-cc = aa / bb;
-Console.WriteLine($"{aa} / {bb} = {cc}");
+//deklaracja tablicy przechowującej dane typu int
+//[] - tablica
+int[] tablicaInt;
+//inicjalizujemy zmienną nową tablicą typu int o rozmiarze 3
+tablicaInt = new int[3];
 
-//aby wynik był poprawny przy dzieleniu dwóch intów należy jako pierwszą operację "przekształcić" int na float
-//możemy to zrobić poprzez wykonanie jako pierwszą operację mnożenia przez typ o większej prezycji
-cc = 1f * a / b;
-Console.WriteLine($"{a} / {b} = {cc}");
-//lub poprzez rzutowanie (czyli potraktowanie jednego typu jako inny (podany w nawiasie))
-cc = (float)a / b;
-Console.WriteLine($"{a} / {b} = {cc}");
+//tablice są indeksowane od 0 (minimalny indeks)
+//odwołujemy się do pierwszgo elemntu tablicy, czyli pod indeks 0
+tablicaInt[0] = a;
+tablicaInt[1] = b;
+//maksymalny indeks tablicy to rozmiar minus 1 (3 - 1 = 2)
+tablicaInt[2] = c;
 
-//kolejność działań zgodna z zasadami matematyki
-c = a + a * a;
-Console.WriteLine($"{a} + {a} * {a} = {c}");
-c = (a + a) * a;
-Console.WriteLine($"({a} + {a}) * {a} = {c}");
+Console.WriteLine(tablicaInt[1]);
+Console.WriteLine(tablicaInt[0]);
+Console.WriteLine(tablicaInt[2]);
+
+Console.WriteLine($"Tablica ma rozmiar {tablicaInt.Length}");
+
+
+string[] tablicaWartosci = new string[3];
+//wpisujemy do tablicy wartość bezpośrednio z konsoli pod indeks 0
+tablicaWartosci[0] = Console.ReadLine();
 
 
 
-Console.WriteLine($"short min:{short.MinValue} max:{short.MaxValue}");
-Console.WriteLine($"int min:{int.MinValue} max:{int.MaxValue}");
-Console.WriteLine($"long min:{long.MinValue} max:{long.MaxValue}");
-Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
-Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
-Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
 
-//dzielenie przez float/double/decimal daje wynik o wyższej precyzji
-Console.WriteLine(5 / 3.3f);
-Console.WriteLine(5 / 3.3d);
-Console.WriteLine(5 / 3.3m);
+void Numbers()
+{
 
-//Math to klasa zawierające funkcje przydatne w obliczeniach matematycznych
-//domyślne zachowanie funkcji zaokrąglającej powoduje zaokrąglanie do wartości parzystej ("financial rounding")
-Console.WriteLine(Math.Round(2.5));
-Console.WriteLine(Math.Round(3.5));
+    int a = 11;
+    int b = 4;
 
-//zaokrąglanie klasyczne
-Console.WriteLine(  Math.Round(2.5, MidpointRounding.AwayFromZero) );
-Console.WriteLine(  Math.Round(3.5, MidpointRounding.AwayFromZero) );
+    int c = a + b;
+    Console.WriteLine($"{a} + {b} = {c}");
+    c = a - b;
+    Console.WriteLine($"{a} - {b} = {c}");
+    c = a * b;
+    Console.WriteLine($"{a} * {b} = {c}");
+    c = a / b; // część dziesiętna jest ucięta
+    Console.WriteLine($"{a} / {b} = {c}");
+    c = a % b; //reszta z dzielenia
+    Console.WriteLine($"{a} % {b} = {c}");
+
+    float aa = 11f;
+    float bb = 4.0f;
+    float cc = aa + bb;
+    Console.WriteLine($"{aa} + {bb} = {cc}");
+    cc = aa - bb;
+    Console.WriteLine($"{aa} - {bb} = {cc}");
+    cc = aa * bb;
+    Console.WriteLine($"{aa} * {bb} = {cc}");
+    cc = aa / bb;
+    Console.WriteLine($"{aa} / {bb} = {cc}");
+
+    //aby wynik był poprawny przy dzieleniu dwóch intów należy jako pierwszą operację "przekształcić" int na float
+    //możemy to zrobić poprzez wykonanie jako pierwszą operację mnożenia przez typ o większej prezycji
+    cc = 1f * a / b;
+    Console.WriteLine($"{a} / {b} = {cc}");
+    //lub poprzez rzutowanie (czyli potraktowanie jednego typu jako inny (podany w nawiasie))
+    cc = (float)a / b;
+    Console.WriteLine($"{a} / {b} = {cc}");
+
+    //kolejność działań zgodna z zasadami matematyki
+    c = a + a * a;
+    Console.WriteLine($"{a} + {a} * {a} = {c}");
+    c = (a + a) * a;
+    Console.WriteLine($"({a} + {a}) * {a} = {c}");
 
 
-//formatowanie liczb
-Console.WriteLine($"{9:0#}");
-Console.WriteLine($"{19:0#}");
+
+    Console.WriteLine($"short min:{short.MinValue} max:{short.MaxValue}");
+    Console.WriteLine($"int min:{int.MinValue} max:{int.MaxValue}");
+    Console.WriteLine($"long min:{long.MinValue} max:{long.MaxValue}");
+    Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
+    Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
+    Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
+
+    //dzielenie przez float/double/decimal daje wynik o wyższej precyzji
+    Console.WriteLine(5 / 3.3f);
+    Console.WriteLine(5 / 3.3d);
+    Console.WriteLine(5 / 3.3m);
+
+    //Math to klasa zawierające funkcje przydatne w obliczeniach matematycznych
+    //domyślne zachowanie funkcji zaokrąglającej powoduje zaokrąglanie do wartości parzystej ("financial rounding")
+    Console.WriteLine(Math.Round(2.5));
+    Console.WriteLine(Math.Round(3.5));
+
+    //zaokrąglanie klasyczne
+    Console.WriteLine(Math.Round(2.5, MidpointRounding.AwayFromZero));
+    Console.WriteLine(Math.Round(3.5, MidpointRounding.AwayFromZero));
 
 
-Console.WriteLine("Podaj jakąś wartość liczbową:");
-string input = Console.ReadLine();
-
-//parsowanie/konwersja string na int
-int intInput = int.Parse(input);
-//parsowanie/konwersja string na float
-float floatInput = float.Parse(input);
-
-float value = intInput / 2f;
-Console.WriteLine(value);
+    //formatowanie liczb
+    Console.WriteLine($"{9:0#}");
+    Console.WriteLine($"{19:0#}");
 
 
-int wartoscInt = 5;
-long wartoscLong = wartoscInt;
+    Console.WriteLine("Podaj jakąś wartość liczbową:");
+    string input = Console.ReadLine();
 
-Console.WriteLine(wartoscLong);
+    //parsowanie/konwersja string na int
+    int intInput = int.Parse(input);
+    //parsowanie/konwersja string na float
+    float floatInput = float.Parse(input);
 
-wartoscLong = 9223372036854775807;
-//rzutowanie - chcąc przypisać wartość o wyższej prezycji do zmiennej o niższej precyzji musimy zastosować rzutowanie
-wartoscInt = (int)wartoscLong;
-Console.WriteLine(wartoscInt);
+    float value = intInput / 2f;
+    Console.WriteLine(value);
 
-float wartoscFloat = 4.5f;
-double wartoscDouble = wartoscFloat;
 
-wartoscFloat = (float)wartoscDouble;
+    int wartoscInt = 5;
+    long wartoscLong = wartoscInt;
 
-DateTime dataCzas = DateTime.Parse("10-3-2022");
-dataCzas = DateTime.ParseExact("10-3-2022", "dd-M-yyyy", CultureInfo.InvariantCulture);
-Console.WriteLine(dataCzas);
+    Console.WriteLine(wartoscLong);
 
-float wartoscMaksymalna = Math.Max(wartoscInt, wartoscFloat);
-//niektóre metody zwracają inny typ danych, niż ten z którego korzystamy, więc tu przydaje się rzutowanie
-float wartoscSrednia = (float)Math.Pow(wartoscFloat, 2);
+    wartoscLong = 9223372036854775807;
+    //rzutowanie - chcąc przypisać wartość o wyższej prezycji do zmiennej o niższej precyzji musimy zastosować rzutowanie
+    wartoscInt = (int)wartoscLong;
+    Console.WriteLine(wartoscInt);
 
-float poleKola = (float)(Math.PI * Math.Pow(wartoscFloat, 2));
-poleKola = (float)(Math.PI * wartoscFloat * wartoscFloat);
+    float wartoscFloat = 4.5f;
+    double wartoscDouble = wartoscFloat;
 
-Console.WriteLine($"{poleKola:f2}");
+    wartoscFloat = (float)wartoscDouble;
 
+    DateTime dataCzas = DateTime.Parse("10-3-2022");
+    dataCzas = DateTime.ParseExact("10-3-2022", "dd-M-yyyy", CultureInfo.InvariantCulture);
+    Console.WriteLine(dataCzas);
+
+    float wartoscMaksymalna = Math.Max(wartoscInt, wartoscFloat);
+    //niektóre metody zwracają inny typ danych, niż ten z którego korzystamy, więc tu przydaje się rzutowanie
+    float wartoscSrednia = (float)Math.Pow(wartoscFloat, 2);
+
+    float poleKola = (float)(3.14 * Math.Pow(wartoscFloat, 2));
+    poleKola = (float)(Math.PI * wartoscFloat * wartoscFloat);
+
+    Console.WriteLine($"{poleKola:f2}");
+}
 
 void StringDemo()
 {
