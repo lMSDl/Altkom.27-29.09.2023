@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-
+using System.Net.Http.Headers;
 
 int a = 5;
 int b = 10;
@@ -40,6 +40,11 @@ string[] wyrazy = historyjka.Split(" ");
 //pobieramy wielkość tablicy
 Console.WriteLine($"Ilość wyrazów: {wyrazy.Length}");
 
+
+int indeksPierwszegoWyrazu = 0;
+Console.WriteLine($"Pierwszy wyraz: {wyrazy[indeksPierwszegoWyrazu]}");
+int indeksOstatniegoWyrazu = wyrazy.Length - 1;
+Console.WriteLine($"Ostatni wyraz: {wyrazy[indeksOstatniegoWyrazu]}");
 
 
 void Numbers()
