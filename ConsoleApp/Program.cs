@@ -49,16 +49,17 @@ Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
 Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
 Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
 
+//dzielenie przez float/double/decimal daje wynik o wyższej precyzji
 Console.WriteLine(5 / 3.3f);
 Console.WriteLine(5 / 3.3d);
 Console.WriteLine(5 / 3.3m);
 
 //Math to klasa zawierające funkcje przydatne w obliczeniach matematycznych
-//domyślne zachowanie funkcji zaokrąglającej powoduje zaokrąglanie do wartości parzystej
+//domyślne zachowanie funkcji zaokrąglającej powoduje zaokrąglanie do wartości parzystej ("financial rounding")
 Console.WriteLine(Math.Round(2.5));
 Console.WriteLine(Math.Round(3.5));
 
-//używamy zaokrąglania znanego ze szkoły
+//zaokrąglanie klasyczne
 Console.WriteLine(  Math.Round(2.5, MidpointRounding.AwayFromZero) );
 Console.WriteLine(  Math.Round(3.5, MidpointRounding.AwayFromZero) );
 
@@ -66,9 +67,6 @@ Console.WriteLine(  Math.Round(3.5, MidpointRounding.AwayFromZero) );
 //formatowanie liczb
 Console.WriteLine($"{9:0#}");
 Console.WriteLine($"{19:0#}");
-
-
-StringDemo();
 
 
 Console.WriteLine("Podaj jakąś wartość liczbową:");
@@ -81,6 +79,31 @@ float floatInput = float.Parse(input);
 
 float value = intInput / 2f;
 Console.WriteLine(value);
+
+
+int wartoscInt = 5;
+long wartoscLong = wartoscInt;
+
+Console.WriteLine(wartoscLong);
+
+wartoscLong = 9223372036854775807;
+//rzutowanie - chcąc przypisać wartość o wyższej prezycji do zmiennej o niższej precyzji musimy zastosować rzutowanie
+wartoscInt = (int)wartoscLong;
+Console.WriteLine(wartoscInt);
+
+float wartoscFloat = 4.5f;
+double wartoscDouble = wartoscFloat;
+
+wartoscFloat = (float)wartoscDouble;
+
+DateTime dataCzas = DateTime.Parse("10-3-2022");
+dataCzas = DateTime.ParseExact("10-3-2022", "dd-M-yyyy", CultureInfo.InvariantCulture);
+Console.WriteLine(dataCzas);
+
+float wartoscMaksymalna = Math.Max(wartoscInt, wartoscFloat);
+//niektóre metody zwracają inny typ danych, niż ten z którego korzystamy, więc tu przydaje się rzutowanie
+float wartoscSrednia = (float)Math.Pow(wartoscFloat, 2);
+
 
 
 void StringDemo()
