@@ -1,86 +1,179 @@
 ﻿using System.Globalization;
 
-Console.WriteLine("Podaj bok kwadratu:");
-string daneOdUzytkownika = Console.ReadLine();
+Console.WriteLine("Podaj nazwę stopnia ze szkolej skali ocen:");
+string nazwa = Console.ReadLine();
 
-
-if (daneOdUzytkownika != "exit")
+//switch - przyjmuje parametr, kóry jest porównywany z listą przypadkó (case)
+switch (nazwa)
 {
-    float bokKwadratu;
-
-    //TryParse - zwraca wartość bool mówiącą czy parsowanie się powiodło
-    //out - parameter wyjściowy - parametr przez który metoda może nam zwrócić jakąś dodatkową wartość (w tym przypadku jest to wynik parsowania)
-    // jeśli parsowanie się nie powiodło, to w parametrze wyjściowym będzie wpisana wartość domyślna typu (dla typów liczbowych jest to 0)
-    bool jestToWartoscLiczbowa = float.TryParse(daneOdUzytkownika, out bokKwadratu);
-    if (!jestToWartoscLiczbowa)
-    {
-        Console.WriteLine("Błędna wartość");
-    }
-    else
-    {
-
-        //if sprawdza watunek w nawiasie i jeśli jest on prawdziwy, to wykonuje się blok kodu pod nim
-        // > - znak większości
-        if (bokKwadratu > 0)
+    //case - rozpatrywany przypadek
+    //wiele case'ow może być przypisanych do tego samego kodu
+    case "celujący":
+    case "celująca":
         {
-            float obwod = bokKwadratu * 4;
-            Console.WriteLine($"Kwadrat o boku {bokKwadratu} na obwód {obwod}");
+            Console.WriteLine(6);
+            //kod wykonywany jest od case do break - nie ma potrzeby stosowaniea klamerek {}
+            //case musi kończyć się instrukją break - przerywająca wykonywanie swticha
         }
-        // jeśli poprzedni warunek nie jest spełniony, to sprawdzany jest kolejny if
-        // else if - może występować wielokrotne
-        else if (bokKwadratu < 0)
-        {
-            Console.WriteLine("Nie mogę policzyć obwodu z boku mniejszego niż zero");
-        }
-        //else - wykonuje blok kodu w każdym innym przypadku
-        else
-        {
-            Console.WriteLine("Kwadrat nie istnieje");
-        }
-
-        //jeżeli używany else, to tylko jeden blok kodu zostanie wykonany i sprawdzanie warunków zakończy się w przypadku wejścia w któryś z bloków
-        //jeżeli nie używamy else, to każdy if będzie traktowany osobno i warunek będzie sprzwdzany niezależnie
-        //wniosek else jest też łącznikiem między kolejnymi if'ami
-
-
-        //!= - znak nierówności 
-        if (bokKwadratu != 0)
-        {
-            Console.WriteLine("Bok jest różny od 0");
-        }
-
-        //znak równości
-        if (bokKwadratu == 0)
-        {
-            Console.WriteLine("Bok jest równy 0");
-        }
-
-
-        bool rezultat = bokKwadratu == 0; //porównanie
-        rezultat = bokKwadratu != 0; //nierówność
-        rezultat = bokKwadratu > 0; //większe
-        rezultat = bokKwadratu < 0; //mniejsze
-        rezultat = bokKwadratu >= 0; //większe bądź równe
-        rezultat = bokKwadratu <= 0; // mniejsze bądź równe
-
-        rezultat = bokKwadratu < 0 || bokKwadratu == 0; // || - logiczne lub (OR)
-        rezultat = bokKwadratu > 0 && bokKwadratu <= 10; // && - logiczne i (AND)
-
-
-        if (rezultat)
-        {
-            Console.WriteLine("Bok kwadratu jest z przedziału (0;10>");
-        }
-
-        //! - negacja - zaprzeczenie tego co występuje po wykrzykniku
-        if (!rezultat)
-        {
-            Console.WriteLine("Bok kwadratu nie jest z przediału (9:10>");
-        }
-    }
-
+        break;
+    case "bardzo dobry":
+    case "bardzo dobra":
+        Console.WriteLine(5);
+        break;
+    case "dobry":
+    case "dobra":
+        Console.WriteLine(4);
+        break;
+    case "dostateczny":
+    case "dostateczna":
+        Console.WriteLine(3);
+        break;
+    case "dopuszczający":
+    case "dopuszczająca":
+        Console.WriteLine(2);
+        break;
+    case "niedostateczny":
+    case "niedostateczna":
+        Console.WriteLine(1);
+        break;
+        //default - odpowiedniek else, czyli wykonanie kodu, jeśli nie znalezioni odpowiedniego case
+    default:
+        Console.WriteLine("W skali ocen nie występuje taki stopień");
+        break;
 }
 
+/*if (nazwa == "celujący" || nazwa == "celująca")
+{
+    Console.WriteLine(6);
+}
+else if (nazwa == "bardzo dobry")
+{
+    Console.WriteLine(5);
+}
+else if (nazwa == "dobry")
+{
+    Console.WriteLine(4);
+}
+else if (nazwa == "dostateczny")
+{
+    Console.WriteLine(3);
+}
+else if (nazwa == "dopuszczający")
+{
+    Console.WriteLine(2);
+}
+else if (nazwa == "niedostateczny")
+{
+    Console.WriteLine(1);
+}
+else
+{
+    Console.WriteLine("W skali ocen nie występuje taki stopień");
+}*/
+
+
+string wartosc = Console.ReadLine();
+int wartoscLiczbowa = int.Parse(wartosc);
+
+switch(wartoscLiczbowa)
+{
+    case > 0:
+        Console.WriteLine($"{wartosc} jest > 0");
+        break;
+    case < 0:
+        Console.WriteLine($"{wartosc} jest < 0");
+        break;
+    case 0:
+        Console.WriteLine($"{wartosc} jest = 0");
+        break;
+}
+
+
+
+void IfDemo()
+{
+
+    Console.WriteLine("Podaj bok kwadratu:");
+    string daneOdUzytkownika = Console.ReadLine();
+
+
+    if (daneOdUzytkownika != "exit")
+    {
+        float bokKwadratu;
+
+        //TryParse - zwraca wartość bool mówiącą czy parsowanie się powiodło
+        //out - parameter wyjściowy - parametr przez który metoda może nam zwrócić jakąś dodatkową wartość (w tym przypadku jest to wynik parsowania)
+        // jeśli parsowanie się nie powiodło, to w parametrze wyjściowym będzie wpisana wartość domyślna typu (dla typów liczbowych jest to 0)
+        bool jestToWartoscLiczbowa = float.TryParse(daneOdUzytkownika, out bokKwadratu);
+        if (!jestToWartoscLiczbowa)
+        {
+            Console.WriteLine("Błędna wartość");
+        }
+        else
+        {
+
+            //if sprawdza watunek w nawiasie i jeśli jest on prawdziwy, to wykonuje się blok kodu pod nim
+            // > - znak większości
+            if (bokKwadratu > 0)
+            {
+                float obwod = bokKwadratu * 4;
+                Console.WriteLine($"Kwadrat o boku {bokKwadratu} na obwód {obwod}");
+            }
+            // jeśli poprzedni warunek nie jest spełniony, to sprawdzany jest kolejny if
+            // else if - może występować wielokrotne
+            else if (bokKwadratu < 0)
+            {
+                Console.WriteLine("Nie mogę policzyć obwodu z boku mniejszego niż zero");
+            }
+            //else - wykonuje blok kodu w każdym innym przypadku
+            else
+            {
+                Console.WriteLine("Kwadrat nie istnieje");
+            }
+
+            //jeżeli używany else, to tylko jeden blok kodu zostanie wykonany i sprawdzanie warunków zakończy się w przypadku wejścia w któryś z bloków
+            //jeżeli nie używamy else, to każdy if będzie traktowany osobno i warunek będzie sprzwdzany niezależnie
+            //wniosek else jest też łącznikiem między kolejnymi if'ami
+
+
+            //!= - znak nierówności 
+            if (bokKwadratu != 0)
+            {
+                Console.WriteLine("Bok jest różny od 0");
+            }
+
+            //znak równości
+            if (bokKwadratu == 0)
+            {
+                Console.WriteLine("Bok jest równy 0");
+            }
+
+
+            bool rezultat = bokKwadratu == 0; //porównanie
+            rezultat = bokKwadratu != 0; //nierówność
+            rezultat = bokKwadratu > 0; //większe
+            rezultat = bokKwadratu < 0; //mniejsze
+            rezultat = bokKwadratu >= 0; //większe bądź równe
+            rezultat = bokKwadratu <= 0; // mniejsze bądź równe
+
+            rezultat = bokKwadratu < 0 || bokKwadratu == 0; // || - logiczne lub (OR)
+            rezultat = bokKwadratu > 0 && bokKwadratu <= 10; // && - logiczne i (AND)
+
+
+            if (rezultat)
+            {
+                Console.WriteLine("Bok kwadratu jest z przedziału (0;10>");
+            }
+
+            //! - negacja - zaprzeczenie tego co występuje po wykrzykniku
+            if (!rezultat)
+            {
+                Console.WriteLine("Bok kwadratu nie jest z przediału (9:10>");
+            }
+        }
+
+    }
+}
 
 
 
