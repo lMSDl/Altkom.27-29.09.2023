@@ -1,51 +1,91 @@
 ﻿using System.Globalization;
-using System.Net.Http.Headers;
 
-int a = 5;
-int b = 10;
-int c = 15;
+void ListDemo()
+{
 
+    //tworzymy nową listę. Lista po inicjalizacji jest pusta.
+    List<string> mojaLista = new List<string>();
 
-//deklaracja tablicy przechowującej dane typu int
-//[] - tablica
-int[] tablicaInt;
-//inicjalizujemy zmienną nową tablicą typu int o rozmiarze 3
-tablicaInt = new int[3];
+    //dodajemy nowy element do listy, rozmiar tablicy się zwiększa
+    mojaLista.Add("!");
+    mojaLista.Add("ala");
+    mojaLista.Add("kota");
 
-//tablice są indeksowane od 0 (minimalny indeks)
-//odwołujemy się do pierwszgo elemntu tablicy, czyli pod indeks 0
-tablicaInt[0] = a;
-tablicaInt[1] = b;
-//maksymalny indeks tablicy to rozmiar minus 1 (3 - 1 = 2)
-tablicaInt[2] = c;
+    //stawiamy element na konkretny indeks listy - pozostałe ementy przesuwają się
+    mojaLista.Insert(1, "ma");
 
-Console.WriteLine(tablicaInt[1]);
-Console.WriteLine(tablicaInt[0]);
-Console.WriteLine(tablicaInt[2]);
+    mojaLista.Add("!");
+    mojaLista.Add("!");
 
-Console.WriteLine($"Tablica ma rozmiar {tablicaInt.Length}");
+    //usuwamy element pod indeksem 2 - rozmiar listy się zmniejsza
+    mojaLista.RemoveAt(2);
+    //usuwamy element wg wartości - jeśli występuję więcej takich elementów, to usuwany jest pierwszy w kolejności
+    mojaLista.Remove("!");
 
+    Console.WriteLine();
 
-string[] tablicaWartosci = new string[3];
-//wpisujemy do tablicy wartość bezpośrednio z konsoli pod indeks 0
-tablicaWartosci[0] = Console.ReadLine();
+    //wypisujemy element po indeksem 1
+    Console.WriteLine(mojaLista[1]);
+    Console.WriteLine($"Lista ma rozmiar: {mojaLista.Count}");
 
-Console.WriteLine("Napisz coś:");
-
-string historyjka = Console.ReadLine();
-
-//tablica zwracana jako rezultat wywołania metody
-//metoda split dzieli string na części wg wskazanego separatora
-string[] wyrazy = historyjka.Split(" ");
-//pobieramy wielkość tablicy
-Console.WriteLine($"Ilość wyrazów: {wyrazy.Length}");
+    //przekształcenie tablicy do listy
+    List<string> listaWyrazw = Console.ReadLine().Split(" ").ToList();
+}
 
 
-int indeksPierwszegoWyrazu = 0;
-Console.WriteLine($"Pierwszy wyraz: {wyrazy[indeksPierwszegoWyrazu]}");
-int indeksOstatniegoWyrazu = wyrazy.Length - 1;
-Console.WriteLine($"Ostatni wyraz: {wyrazy[indeksOstatniegoWyrazu]}");
+void ArrayDemo()
+{
 
+    int a = 5;
+    int b = 10;
+    int c = 15;
+
+
+    //deklaracja tablicy przechowującej dane typu int
+    //[] - tablica
+    int[] tablicaInt;
+    //inicjalizujemy zmienną nową tablicą typu int o rozmiarze 3
+    tablicaInt = new int[3];
+
+    //tablice są indeksowane od 0 (minimalny indeks)
+    //odwołujemy się do pierwszgo elemntu tablicy, czyli pod indeks 0
+    tablicaInt[0] = a;
+    tablicaInt[1] = b;
+    //maksymalny indeks tablicy to rozmiar minus 1 (3 - 1 = 2)
+    tablicaInt[2] = c;
+
+    Console.WriteLine(tablicaInt[1]);
+    Console.WriteLine(tablicaInt[0]);
+    Console.WriteLine(tablicaInt[2]);
+
+    Console.WriteLine($"Tablica ma rozmiar {tablicaInt.Length}");
+
+
+    string[] tablicaWartosci = new string[3];
+    //wpisujemy do tablicy wartość bezpośrednio z konsoli pod indeks 0
+    tablicaWartosci[0] = Console.ReadLine();
+
+    Console.WriteLine("Napisz coś:");
+
+    string historyjka = Console.ReadLine();
+
+    //tablica zwracana jako rezultat wywołania metody
+    //metoda split dzieli string na części wg wskazanego separatora
+    string[] wyrazy = historyjka.Split(" ");
+    //pobieramy wielkość tablicy
+    Console.WriteLine($"Ilość wyrazów: {wyrazy.Length}");
+
+
+    int indeksPierwszegoWyrazu = 0;
+    Console.WriteLine($"Pierwszy wyraz: {wyrazy[indeksPierwszegoWyrazu]}");
+    int indeksOstatniegoWyrazu = wyrazy.Length - 1;
+    Console.WriteLine($"Ostatni wyraz: {wyrazy[indeksOstatniegoWyrazu]}");
+
+    int indekszTablicyWartosci = int.Parse(tablicaWartosci[0]);
+    string wyraz = wyrazy[indekszTablicyWartosci];
+
+    Console.WriteLine(wyraz);
+}
 
 void Numbers()
 {
