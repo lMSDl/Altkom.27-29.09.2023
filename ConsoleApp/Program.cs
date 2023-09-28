@@ -104,6 +104,10 @@ float wartoscMaksymalna = Math.Max(wartoscInt, wartoscFloat);
 //niektóre metody zwracają inny typ danych, niż ten z którego korzystamy, więc tu przydaje się rzutowanie
 float wartoscSrednia = (float)Math.Pow(wartoscFloat, 2);
 
+float poleKola = (float)(Math.PI * Math.Pow(wartoscFloat, 2));
+poleKola = (float)(Math.PI * wartoscFloat * wartoscFloat);
+
+Console.WriteLine($"{poleKola:f2}");
 
 
 void StringDemo()
