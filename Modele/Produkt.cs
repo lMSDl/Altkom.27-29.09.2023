@@ -27,8 +27,14 @@ namespace Modele
             Cena = cena;
         }
 
+        public Produkt(string nazwa)
+        {
+            Nazwa = nazwa;
+        }
 
-        public string Nazwa { get; set; }
+        //nie pozwalamy modyfikować nazwy produktu z zewnątrz
+        //nazwa jest ustawiana przez konstruktor
+        public string Nazwa { get; private set; }
         public float Cena { get; set; }
 
         //przeciążenie metody = wiele metod o tej samej nazwie, ale przyjmujące inne parametry

@@ -2,12 +2,12 @@
 using Modele;
 
 
-Produkt produkt1 = new Produkt();
+Produkt produkt1 = new Produkt("Kawa");
 Produkt produkt2 = new Produkt("Herbata", 58.22f);
-Produkt produkt3 = new Produkt();
+Produkt produkt3 = new Produkt("Mleko");
 Produkt produkt4 = new Produkt();
 
-produkt1.Nazwa = "Kawa";
+//produkt1.Nazwa = "Kawa";
 produkt1.Cena = 13.24f;
 
 
@@ -15,7 +15,7 @@ produkt1.Cena = 13.24f;
 produkt2.Cena = 55.22f;*/
 
 
-produkt3.Nazwa = "Mleko";
+//produkt3.Nazwa = "Mleko";
 produkt3.Cena = 2.24f;
 
 Console.WriteLine(produkt1.PobierzOpis());
@@ -25,7 +25,7 @@ Console.WriteLine(produkt2.PobierzOpis());
 Console.WriteLine(produkt3.PobierzOpis("Produkt o nazwie {0} kosztuje {1} zł"));
 
 Console.WriteLine(produkt4.PobierzOpis());
-
+Console.WriteLine(produkt4.Nazwa);
 
 
 
