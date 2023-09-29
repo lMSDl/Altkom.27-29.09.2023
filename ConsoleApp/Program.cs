@@ -3,15 +3,16 @@ using Modele;
 
 
 Produkt produkt1 = new Produkt();
-Produkt produkt2 = new Produkt();
+Produkt produkt2 = new Produkt("Herbata", 58.22f);
 Produkt produkt3 = new Produkt();
+Produkt produkt4 = new Produkt();
 
 produkt1.Nazwa = "Kawa";
 produkt1.Cena = 13.24f;
 
 
-produkt2.Nazwa = "Herbata";
-produkt2.Cena = 55.22f;
+/*produkt2.Nazwa = "Herbata";
+produkt2.Cena = 55.22f;*/
 
 
 produkt3.Nazwa = "Mleko";
@@ -21,11 +22,14 @@ Console.WriteLine(produkt1.PobierzOpis());
 
 Console.WriteLine(produkt2.PobierzOpis());
 
-Console.WriteLine(produkt3.PobierzOpis());
+Console.WriteLine(produkt3.PobierzOpis("Produkt o nazwie {0} kosztuje {1} zł"));
+
+Console.WriteLine(produkt4.PobierzOpis());
 
 
 
-//new - wytwarzamy nowy oibiekt (instancję) klasy Osoba
+
+//new - wytwarzamy nowy obiekt (instancję) klasy Osoba
 Modele.Osoba osoba = new Osoba();
 Modele.Osoba osoba1 = new Osoba();
 Modele.Osoba osoba2 = new Osoba();
