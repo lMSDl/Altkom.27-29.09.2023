@@ -2,9 +2,34 @@
 using Modele;
 
 
+Produkt produkt1 = new Produkt();
+Produkt produkt2 = new Produkt();
+Produkt produkt3 = new Produkt();
+
+produkt1.Nazwa = "Kawa";
+produkt1.Cena = 13.24f;
+
+
+produkt2.Nazwa = "Herbata";
+produkt2.Cena = 55.22f;
+
+
+produkt3.Nazwa = "Mleko";
+produkt3.Cena = 2.24f;
+
+Console.WriteLine(produkt1.PobierzOpis());
+
+Console.WriteLine(produkt2.PobierzOpis());
+
+Console.WriteLine(produkt3.PobierzOpis());
+
+
+
 //new - wytwarzamy nowy oibiekt (instancję) klasy Osoba
 Modele.Osoba osoba = new Osoba();
-
+Modele.Osoba osoba1 = new Osoba();
+Modele.Osoba osoba2 = new Osoba();
+Modele.Osoba osoba3 = new Osoba();
 
 Console.WriteLine(osoba.GetType().Name);
 Console.WriteLine(osoba.GetType().Namespace);
@@ -22,6 +47,11 @@ Console.WriteLine(osoba.GetImie());
 osoba.Nazwisko = "    Adamski   ";
 
 Console.WriteLine(osoba.Nazwisko);
+
+osoba1.SetImie("Ewa");
+osoba1.Nazwisko = "Ewowska";
+Console.WriteLine(osoba1.GetImie());
+Console.WriteLine(osoba1.Nazwisko);
 
 
 void ForDemo()
