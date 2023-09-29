@@ -52,6 +52,13 @@ for(int i = liczby.Length - 1; i >= 0; i--)
 }
 
 
+foreach(float liczba in liczby)
+{
+    Console.WriteLine(liczba);
+}
+
+
+
 void DoWhileDemo()
 {
     float wartoscFloat;
