@@ -51,11 +51,18 @@ for(int i = liczby.Length - 1; i >= 0; i--)
     Console.WriteLine(liczby[i]);
 }
 
-
+//foreach - pozwala przejsc po wszystkich elementach tablicy
 foreach(float liczba in liczby)
 {
     Console.WriteLine(liczba);
 }
+//foreach zastępuje poniższy sposób iteracji po tablicy
+for (int i = 0; i < liczby.Length; i++)
+{
+    float liczba = liczby[i];
+    Console.WriteLine(liczba);
+}
+
 
 
 
