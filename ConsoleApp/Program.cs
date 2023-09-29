@@ -1,6 +1,58 @@
 ﻿using System.Globalization;
 
-void DoWhile()
+
+//I - inicjalizacja pętli - wykonuje siuę tylko raz na początku
+//II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciała
+//III - ciało pętli
+//IV - akcja po wykonaniu ciałą - najczęsciej inkrementacja licznika
+//for(I ; II ; IV)
+//{ III }
+
+for(int i = 0; i < 5; i++ /*i = i+1*/)
+{
+    Console.WriteLine(i);
+}
+
+
+//pętla nieskończona
+/*for(; ; )
+{
+    Console.WriteLine("*");
+}*/
+
+
+int licznik = 5;
+for (; licznik >= 0; licznik--)
+{
+    Console.WriteLine(licznik);
+}
+
+//odpowiednik pętli while
+for (; licznik < 4;)
+{
+    Console.WriteLine(licznik++);
+}
+
+
+Console.WriteLine("Podaj liczby po spacji:");
+string ciagWejsciowy = Console.ReadLine();
+
+string[] podzielonyCiagWejsciowy = ciagWejsciowy.Split(" ");
+float[] liczby = new float[podzielonyCiagWejsciowy.Length];
+
+
+for(int i = 0; i < liczby.Length; i++)
+{
+    liczby[i] = float.Parse(podzielonyCiagWejsciowy[i]);
+}
+
+for(int i = liczby.Length - 1; i >= 0; i--)
+{
+    Console.WriteLine(liczby[i]);
+}
+
+
+void DoWhileDemo()
 {
     float wartoscFloat;
     bool wartoscPoprawna;
