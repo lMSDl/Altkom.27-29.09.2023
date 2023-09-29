@@ -24,7 +24,7 @@ Console.WriteLine(produkt2.PobierzOpis());
 
 Console.WriteLine(produkt3.PobierzOpis("Produkt o nazwie {0} kosztuje {1} zł"));
 
-Console.WriteLine(produkt4.PobierzOpis());
+Console.WriteLine(produkt4);
 Console.WriteLine(produkt4.Nazwa);
 
 

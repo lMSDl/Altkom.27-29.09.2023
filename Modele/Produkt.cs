@@ -48,5 +48,10 @@ namespace Modele
             return opis;
         }
 
+
+        public override string ToString()
+        {
+            return PobierzOpis();
+        }
     }
 }
