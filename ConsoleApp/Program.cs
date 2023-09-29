@@ -29,6 +29,30 @@ Console.WriteLine(produkt4.Nazwa);
 
 
 
+Koszyk mojKoszyk = new Koszyk(3);
+/*mojKoszyk.Dodaj(produkt1);
+mojKoszyk.Dodaj(produkt2);
+mojKoszyk.Dodaj(produkt3);*/
+
+DodajDoKoszyka(produkt1, mojKoszyk);
+DodajDoKoszyka(produkt2, mojKoszyk);
+DodajDoKoszyka(produkt3, mojKoszyk);
+DodajDoKoszyka(produkt4, mojKoszyk);
+DodajDoKoszyka(produkt3, mojKoszyk);
+
+Console.WriteLine("******");
+Console.WriteLine( mojKoszyk.CoJestWKoszyku()  );
+Console.WriteLine("******");
+
+void DodajDoKoszyka(Produkt produkt, Koszyk mojKoszyk)
+{
+    if (!mojKoszyk.Dodaj(produkt4))
+    {
+        Console.WriteLine($"Brak miejsca w koszyku na {produkt.Nazwa}");
+    }
+}
+
+
 //new - wytwarzamy nowy obiekt (instancję) klasy Osoba
 Modele.Osoba osoba = new Osoba();
 Modele.Osoba osoba1 = new Osoba();
