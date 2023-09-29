@@ -1,68 +1,93 @@
 ﻿using System.Globalization;
+using Modele;
 
 
-//I - inicjalizacja pętli - wykonuje siuę tylko raz na początku
-//II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciała
-//III - ciało pętli
-//IV - akcja po wykonaniu ciałą - najczęsciej inkrementacja licznika
-//for(I ; II ; IV)
-//{ III }
+//new - wytwarzamy nowy oibiekt (instancję) klasy Osoba
+Modele.Osoba osoba = new Osoba();
 
-for(int i = 0; i < 5; i++ /*i = i+1*/)
+
+Console.WriteLine(osoba.GetType().Name);
+Console.WriteLine(osoba.GetType().Namespace);
+Console.WriteLine(osoba.GetType().FullName);
+
+
+osoba.ShowDateTime();
+
+DateTime dataCzas = osoba.GetDateTime();
+Console.WriteLine(dataCzas);
+
+osoba.SetImie("   Adam   ");
+Console.WriteLine(osoba.GetImie());
+
+osoba.Nazwisko = "    Adamski   ";
+
+Console.WriteLine(osoba.Nazwisko);
+
+
+void ForDemo()
 {
-    Console.WriteLine(i);
+    //I - inicjalizacja pętli - wykonuje siuę tylko raz na początku
+    //II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciała
+    //III - ciało pętli
+    //IV - akcja po wykonaniu ciałą - najczęsciej inkrementacja licznika
+    //for(I ; II ; IV)
+    //{ III }
+
+    for (int i = 0; i < 5; i++ /*i = i+1*/)
+    {
+        Console.WriteLine(i);
+    }
+
+
+    //pętla nieskończona
+    /*for(; ; )
+    {
+        Console.WriteLine("*");
+    }*/
+
+
+    int licznik = 5;
+    for (; licznik >= 0; licznik--)
+    {
+        Console.WriteLine(licznik);
+    }
+
+    //odpowiednik pętli while
+    for (; licznik < 4;)
+    {
+        Console.WriteLine(licznik++);
+    }
+
+
+    Console.WriteLine("Podaj liczby po spacji:");
+    string ciagWejsciowy = Console.ReadLine();
+
+    string[] podzielonyCiagWejsciowy = ciagWejsciowy.Split(" ");
+    float[] liczby = new float[podzielonyCiagWejsciowy.Length];
+
+
+    for (int i = 0; i < liczby.Length; i++)
+    {
+        liczby[i] = float.Parse(podzielonyCiagWejsciowy[i]);
+    }
+
+    for (int i = liczby.Length - 1; i >= 0; i--)
+    {
+        Console.WriteLine(liczby[i]);
+    }
+
+    //foreach - pozwala przejsc po wszystkich elementach tablicy
+    foreach (float liczba in liczby)
+    {
+        Console.WriteLine(liczba);
+    }
+    //foreach zastępuje poniższy sposób iteracji po tablicy
+    for (int i = 0; i < liczby.Length; i++)
+    {
+        float liczba = liczby[i];
+        Console.WriteLine(liczba);
+    }
 }
-
-
-//pętla nieskończona
-/*for(; ; )
-{
-    Console.WriteLine("*");
-}*/
-
-
-int licznik = 5;
-for (; licznik >= 0; licznik--)
-{
-    Console.WriteLine(licznik);
-}
-
-//odpowiednik pętli while
-for (; licznik < 4;)
-{
-    Console.WriteLine(licznik++);
-}
-
-
-Console.WriteLine("Podaj liczby po spacji:");
-string ciagWejsciowy = Console.ReadLine();
-
-string[] podzielonyCiagWejsciowy = ciagWejsciowy.Split(" ");
-float[] liczby = new float[podzielonyCiagWejsciowy.Length];
-
-
-for(int i = 0; i < liczby.Length; i++)
-{
-    liczby[i] = float.Parse(podzielonyCiagWejsciowy[i]);
-}
-
-for(int i = liczby.Length - 1; i >= 0; i--)
-{
-    Console.WriteLine(liczby[i]);
-}
-
-//foreach - pozwala przejsc po wszystkich elementach tablicy
-foreach(float liczba in liczby)
-{
-    Console.WriteLine(liczba);
-}
-//foreach zastępuje poniższy sposób iteracji po tablicy
-for (int i = 0; i < liczby.Length; i++)
-{
-    float liczba = liczby[i];
-    Console.WriteLine(liczba);
-}
-
 
 
 
