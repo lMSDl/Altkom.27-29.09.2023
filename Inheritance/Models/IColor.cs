@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Inheritance.Models
 {
-    internal class Line : Shape1D
+    internal interface IColor
     {
-        public Line(int width) : base(width, "Odcinek")
-        {
-        }
+        public void SetColor(string colorName);
+        public string GetColor();
     }
 }

@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace Inheritance.Models
 {
-    internal class Rectangle : Shape2D, IColor
+    internal class Line : Shape1D, IColor
     {
-        public Rectangle(int width, int height) : base(width, height, "Prostokąt")
+        public Line(int width) : base(width, "Odcinek")
         {
-        }
-
-        public override float CalculateArea()
-        {
-            return Height * Height;
         }
 
         private string _colorName;

@@ -25,3 +25,8 @@ foreach(Shape shape in shapes)
 {
     Console.WriteLine(shape.ToString());
 }
+
+IColor[] colorableShape = new IColor[2];
+
+colorableShape[0] = (Rectangle)myShape2D;
+colorableShape[1] = (Line)myShape1D;
